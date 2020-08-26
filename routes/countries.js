@@ -16,7 +16,6 @@ router.get('/:countryCode', async(req, res) => {
         } else {
             const tempData = await getData(urls['countryCurrentUrl'] + req.params.countryCode)
             const countryCurrentData = await tempData[0]
-            console.log(countryCurrentData)
             res.render('country', {
                 countryCurrentData
             })
