@@ -1,0 +1,78 @@
+<h2 style="text-align: center;">
+    <%= countryCurrentData.country %>
+</h2>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col-md-6 m-auto" style="text-align: center;">
+        <%= new Date(countryCurrentData.lastUpdated) %>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col-md-6 m-auto" style="text-align: center;">
+        <div class="card card-body">
+            <p>
+                Total Confirmed:
+                <%= countryCurrentData.totalConfirmed.toLocaleString() %>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col-md-6 m-auto" style="text-align: center;">
+        <div class="card card-body">
+            <p>
+                Active Cases:
+                <%= countryCurrentData.activeCases.toLocaleString() %>
+            </p>
+            <p>
+                Total Critical:
+                <%= countryCurrentData.totalCritical.toLocaleString() %>
+            </p>
+            <p>
+                Total Recovered:
+                <%= countryCurrentData.totalRecovered.toLocaleString() %>
+            </p>
+            <p>
+                Total Deaths:
+                <%= countryCurrentData.totalDeaths.toLocaleString() %>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col-md-6 m-auto" style="text-align: center;">
+        <div class="card card-body">
+            <p>
+                Daily Confirmed:
+                <%= countryCurrentData.dailyConfirmed.toLocaleString() %>
+            </p>
+            <p>
+                Daily Deaths:
+                <%= countryCurrentData.dailyDeaths.toLocaleString() %>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col-md-6 m-auto" style="text-align: center;">
+        <div class="card card-body">
+            <p>
+                Total Confirmed Per Million Population:
+                <%= countryCurrentData.totalConfirmedPerMillionPopulation.toLocaleString() %>
+            </p>
+            <p>
+                Total Deaths Per Million Population:
+                <%= countryCurrentData.totalDeathsPerMillionPopulation.toLocaleString() %>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem;">
+    <div class="col">
+        <canvas id="countryCurrentPieChart" class="<%= countryCurrentData.countryCode ? countryCurrentData.countryCode : countryCurrentData.country.toLowerCase().replace(' ', '-') %>"></canvas>
+    </div>
+</div>
+<div class="row" style="margin-top: 2.5rem; margin-bottom: 5rem;">
+    <div class="col">
+        <canvas id="countryHistoryLineChart" class="<%= countryCurrentData.country %>"></canvas>
+    </div>
+</div>

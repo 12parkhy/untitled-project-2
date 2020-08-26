@@ -1,0 +1,15 @@
+.fa-sort {
+    cursor: pointer;
+}
+
+.table-responsive {
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.table-responsive thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-top: white;
+}
