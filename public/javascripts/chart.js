@@ -7,7 +7,7 @@ const urls = {
     countryHistoryUrl: "https://corona.azure-api.net/timeline/"
 }
 
-const getData = async(url) => {
+const getData = async (url) => {
     try {
         const response = await fetch(url)
         const json = await response.json()
@@ -16,7 +16,7 @@ const getData = async(url) => {
         console.error(error)
     }
 }
-const generateGlobalCharts = async() => {
+const generateGlobalCharts = async () => {
     const globalCurrentData = await getData(urls['globalCurrentUrl'])
     const globalCurrentPieChart = document.getElementById('globalCurrentPieChart').getContext('2d')
     const globalPieChart = new Chart(globalCurrentPieChart, {
@@ -37,7 +37,7 @@ const generateGlobalCharts = async() => {
             },
             tooltips: {
                 callbacks: {
-                    label: function(a, b) {
+                    label: function (a, b) {
                         const value = b.datasets[a.datasetIndex].data[a.index].toLocaleString()
                         return value
                     }
@@ -65,26 +65,26 @@ const generateGlobalCharts = async() => {
         data: {
             labels: lastUpdated,
             datasets: [{
-                    label: 'Total Confirmed',
-                    fill: false,
-                    data: totalConfirmed,
-                    backgroundColor: '#FFC107',
-                    borderColor: '#FFC107'
-                },
-                {
-                    label: 'Total Deaths',
-                    fill: false,
-                    data: totalDeaths,
-                    backgroundColor: '#DC3545',
-                    borderColor: '#DC3545'
-                },
-                {
-                    label: 'Total Recovered',
-                    fill: false,
-                    data: totalRecovered,
-                    backgroundColor: '#28A745',
-                    borderColor: '#28A745'
-                }
+                label: 'Total Confirmed',
+                fill: false,
+                data: totalConfirmed,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107'
+            },
+            {
+                label: 'Total Deaths',
+                fill: false,
+                data: totalDeaths,
+                backgroundColor: '#DC3545',
+                borderColor: '#DC3545'
+            },
+            {
+                label: 'Total Recovered',
+                fill: false,
+                data: totalRecovered,
+                backgroundColor: '#28A745',
+                borderColor: '#28A745'
+            }
             ]
         },
         options: {
@@ -104,7 +104,7 @@ const generateGlobalCharts = async() => {
                 }],
                 yAxes: [{
                     ticks: {
-                        callback: function(value) {
+                        callback: function (value) {
                             return value.toLocaleString()
                         }
                     }
@@ -113,7 +113,7 @@ const generateGlobalCharts = async() => {
             tooltips: {
                 mode: 'index',
                 callbacks: {
-                    label: function(a, b) {
+                    label: function (a, b) {
                         const value = b.datasets[a.datasetIndex].data[a.index].toLocaleString()
                         return value
                     }
@@ -122,7 +122,7 @@ const generateGlobalCharts = async() => {
         }
     })
 }
-const generateCountryCharts = async() => {
+const generateCountryCharts = async () => {
     const countryCode = (document.getElementById('countryCurrentPieChart').classList)["value"]
     let countryCurrentData
     if (countryCode[0] != countryCode[0].toLowerCase()) {
@@ -156,7 +156,7 @@ const generateCountryCharts = async() => {
             },
             tooltips: {
                 callbacks: {
-                    label: function(a, b) {
+                    label: function (a, b) {
                         const value = b.datasets[a.datasetIndex].data[a.index].toLocaleString()
                         return value
                     }
@@ -185,26 +185,26 @@ const generateCountryCharts = async() => {
         data: {
             labels: dates,
             datasets: [{
-                    label: 'Total Confirmed',
-                    fill: false,
-                    data: confirmed,
-                    backgroundColor: '#FFC107',
-                    borderColor: '#FFC107'
-                },
-                {
-                    label: 'Total Deaths',
-                    fill: false,
-                    data: deaths,
-                    backgroundColor: '#DC3545',
-                    borderColor: '#DC3545'
-                },
-                {
-                    label: 'Total Recovered',
-                    fill: false,
-                    data: recovered,
-                    backgroundColor: '#28A745',
-                    borderColor: '#28A745'
-                }
+                label: 'Total Confirmed',
+                fill: false,
+                data: confirmed,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107'
+            },
+            {
+                label: 'Total Deaths',
+                fill: false,
+                data: deaths,
+                backgroundColor: '#DC3545',
+                borderColor: '#DC3545'
+            },
+            {
+                label: 'Total Recovered',
+                fill: false,
+                data: recovered,
+                backgroundColor: '#28A745',
+                borderColor: '#28A745'
+            }
             ]
         },
         options: {
@@ -224,7 +224,7 @@ const generateCountryCharts = async() => {
                 }],
                 yAxes: [{
                     ticks: {
-                        callback: function(value) {
+                        callback: function (value) {
                             return value.toLocaleString()
                         }
                     }
@@ -233,7 +233,7 @@ const generateCountryCharts = async() => {
             tooltips: {
                 mode: 'index',
                 callbacks: {
-                    label: function(a, b) {
+                    label: function (a, b) {
                         const value = b.datasets[a.datasetIndex].data[a.index].toLocaleString()
                         return value
                     }

@@ -1,4 +1,4 @@
-const createTable = async(data) => {
+const createTable = async (data) => {
     const tableBody = document.getElementById('countriesTableBody')
     let addition = ''
     let count = 0
@@ -7,8 +7,8 @@ const createTable = async(data) => {
         addition = addition + `<tr>
         <td>${count}</td>
         <td>
-            <a href="/countries/${data[i].countryCode != null && data[i].countryCode != '' ? data[i].countryCode 
-            : data[i].country.toLowerCase().replace(' ', '-')}">
+            <a href="/countries/${data[i].countryCode != null && data[i].countryCode != '' ? data[i].countryCode
+                : data[i].country.toLowerCase().replace(' ', '-')}">
                 ${data[i].country}
             </a>
         </td>
@@ -46,7 +46,7 @@ const createTable = async(data) => {
     }
     tableBody.innerHTML = addition
 }
-const generateData = async() => {
+const generateData = async () => {
     const countriesCurrentData = await getData(urls['countriesCurrentUrl'])
     createTable(countriesCurrentData)
 }
@@ -62,7 +62,7 @@ const searchData = (value, data) => {
     }
     return searchedData
 }
-document.addEventListener('click', async(event) => {
+document.addEventListener('click', async (event) => {
     if (event.target.classList.contains('fa-sort') && event.target.parentElement.id == 'country') {
         const searchedValue = document.getElementById('searchCountries').value
         let countriesCurrentData = null
@@ -101,7 +101,7 @@ document.addEventListener('click', async(event) => {
         }
     }
 })
-document.addEventListener('click', async(event) => {
+document.addEventListener('click', async (event) => {
     if (event.target.classList.contains('fa-sort') && event.target.parentElement.id != 'country') {
         const searchedValue = document.getElementById('searchCountries').value
         let countriesCurrentData = null
@@ -142,7 +142,7 @@ document.addEventListener('click', async(event) => {
     }
 })
 const searchCountriesInput = document.getElementById('searchCountries')
-searchCountriesInput.addEventListener('keyup', async(event) => {
+searchCountriesInput.addEventListener('keyup', async (event) => {
     const countriesCurrentData = await getData(urls['countriesCurrentUrl'])
     const searchedData = searchData(searchCountriesInput.value, countriesCurrentData)
     createTable(searchedData)

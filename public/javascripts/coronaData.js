@@ -9,7 +9,7 @@ const urls = {
     countryHistoryUrl: "https://corona.azure-api.net/timeline/"
 }
 
-const getData = async(url) => {
+const getData = async (url) => {
     try {
         const response = await fetch(url)
         const json = await response.json()
